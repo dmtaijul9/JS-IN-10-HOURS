@@ -3,42 +3,44 @@ import ReactDOM from "react-dom";
 
 import "./index.css";
 
+const list = [
+  { id: 1, name: "Tanmoy", age: 22, description: "This is a description " },
+  {
+    id: 2,
+    name: "Jamatul",
+    age: 25,
+    description: "this is second description . ",
+  },
+  {
+    id: 3,
+    name: "Shahrin",
+    age: 20,
+    description: "This is third description ",
+  },
+];
+
 const BookList = () => {
   return (
     <div className="booklist">
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      {list.map((person) => {
+        return <Book key={person.id} {...person} />;
+      })}
     </div>
   );
 };
 
-const Book = () => {
+const Book = (props) => {
+  console.log(props);
+  const { name, age, description } = props;
   return (
     <section className="book">
-      {" "}
-      <Image /> <Title />
+      <h1> Name: {name} </h1>
+      <br />
+      <h2> Age: {age} </h2>
+      <br />
+      <h3> Description: {description} </h3>
     </section>
   );
 };
 
-const Image = () => {
-  return (
-    <img
-      src="https://m.media-amazon.com/images/I/71eOa2PywHL._AC_SY450_.jpg"
-      alt="Cat"
-      style={{ marginLeft: "20px" }}
-    />
-  );
-};
-
-const Title = () => {
-  return <div>abbitgoo Cat Harness and Leash for Walking</div>;
-};
 ReactDOM.render(<BookList />, document.getElementById("root"));
