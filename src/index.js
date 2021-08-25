@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import "./index.css";
+
 const BookList = () => {
   return (
-    <div>
+    <div className="booklist">
       <Book />
       <Book />
       <Book />
@@ -19,7 +21,7 @@ const BookList = () => {
 
 const Book = () => {
   return (
-    <section>
+    <section className="book">
       {" "}
       <Image /> <Title />
     </section>
@@ -31,16 +33,12 @@ const Image = () => {
     <img
       src="https://m.media-amazon.com/images/I/71eOa2PywHL._AC_SY450_.jpg"
       alt="Cat"
+      style={{ marginLeft: "20px" }}
     />
   );
 };
 
 const Title = () => {
-  return (
-    <div>
-      abbitgoo Cat Harness and Leash for Walking, Escape Proof Soft Adjustable
-      Vest Harnesses for Cats, Easy Control Breathable
-    </div>
-  );
+  return <div>abbitgoo Cat Harness and Leash for Walking</div>;
 };
 ReactDOM.render(<BookList />, document.getElementById("root"));
